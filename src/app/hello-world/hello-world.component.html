@@ -1,0 +1,76 @@
+<thf-page-default t-title="Hello World!">
+  <h1 i18n="User welcome|An introduction header for this sample@@introductionHeader">
+    Hello i18n!
+  </h1>
+
+  <ng-container i18n>I don't output any element</ng-container>
+
+  <br />
+
+  <img [src]="logo" i18n-title title="Angular logo" />
+  <br>
+  <button (click)="inc(1)">+</button>
+  <button (click)="inc(-1)">-</button>
+  <span i18n>Updated {minutes, plural, =0 {just now} =1 {one minute ago} other {{{minutes}} minutes ago}}</span>
+  ({{minutes}})
+  <br>
+  <br>
+  <button (click)="male()">&#9794;</button>
+  <button (click)="female()">&#9792;</button>
+  <button (click)="other()">&#9895;</button>
+  <span i18n>The author is {gender, select, male {male} female {female} other {other}}</span>
+  <br>
+  <br>
+  <span i18n>Updated: {minutes, plural, =0 {just now} =1 {one minute ago} other {{{minutes}} minutes ago by {gender, select, male {male}
+    female {female} other {other}}}}
+  </span>
+
+  <h2 i18n>Today is {{ today | date}}</h2>
+  <h2 i18n>Or if you prefer, {{ today | date:'fullDate'}}</h2>
+  <h2 i18n>The time is {{ today | date:'h:mm a z'}}</h2>
+
+  <br>
+  <br>
+
+  <!--output '$0.26'-->
+  <p>A: {{a | currency}}</p>
+
+  <!--output 'CA$0.26'-->
+  <p>A: {{a | currency:'CAD'}}</p>
+
+  <!--output 'CAD0.26'-->
+  <p>A: {{a | currency:'CAD':'code'}}</p>
+
+  <!--output 'CA$0,001.35'-->
+  <p>B: {{b | currency:'CAD':'symbol':'4.2-2'}}</p>
+
+  <!--output '$0,001.35'-->
+  <p>B: {{b | currency:'CAD':'symbol-narrow':'4.2-2'}}</p>
+
+  <!--output 'CLP1' because CLP has no cents-->
+  <p>B: {{b | currency:'CLP'}}</p>
+
+  <br>
+  <br>
+
+  <!--output '2.718'-->
+  <p i18n>e (no formatting): {{e | number}}</p>
+
+  <!--output '002.71828'-->
+  <p>e (3.1-5): {{e | number:'3.1-5'}}</p>
+
+  <!--output '0,002.71828'-->
+  <p>e (4.5-5): {{e | number:'4.5-5'}}</p>
+
+  <!--output '3.14'-->
+  <p i18n>pi (no formatting): {{pi | number}}</p>
+
+  <!--output '003.14'-->
+  <p>pi (3.1-5): {{pi | number:'3.1-5'}}</p>
+
+  <!--output '003.14000'-->
+  <p>pi (3.5-5): {{pi | number:'3.5-5'}}</p>
+
+  <!--output '-3' / unlike '-2' by Math.round()-->
+  <p>-2.5 (1.0-0): {{-2.5 | number:'1.0-0'}}</p>
+</thf-page-default>
